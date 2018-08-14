@@ -72,4 +72,26 @@ it 'will raise an error for an invalid hour/min/sec' do
   }.must_raise ArgumentError
 end
 
+it 'will raise an error for an invalid hour/min/sec' do
+  #Arrange
+  hour = 0
+  min = 59
+  sec = 0
+
+  #Act
+  time = clock(hour, min, sec)
+
+  #Assert
+  expect(time).must_equal '00:59:00'
+
+  # re-Arrange
+  min = 60
+
+  #Act-Assert (this keeps the program from crashing)
+  expect {
+    time = clock(hour, min, sec)
+  }.must_raise ArgumentError
+
+end
+
 end
