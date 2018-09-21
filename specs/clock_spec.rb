@@ -4,25 +4,27 @@
 # to get colors
 require 'minitest/autorun'
 require 'minitest/reporters'
-require_relative 'clock'
+require_relative '../lib/clock'
 
 Minitest::Reporters.use!
 
 # This is to describe my test (Each block represents one tets)
 
-describe 'Clock' do
+describe 'Clock' dov # Describe test contains several tests
   it 'will return a string' do # this will return a string
 
-    # Arrange the situation
+    # Arrange the situation (Something is up)
     hours = 9
     minutes = 25
     seconds = 46
 
-    # Act - Perform the action we are trying to test
+    # Act - Perform the action we are trying to test (do the thing)
     time = clock(hours, minutes, seconds)
 
     # Assert what I am expecting to be true - step (no matter what is does it needs to give us string)
+    # Check that you have done the thing I ask you to do...
     expect(time).must_be_instance_of String # this is an expectation that the result will be an instanc of string
+# These are assertions and matches. It needs to satisfy this test above.
   end
 
   it 'will return a string formatted in hh:mm:ss format when hours is a single digit' do
